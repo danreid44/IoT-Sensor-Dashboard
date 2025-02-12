@@ -1,6 +1,6 @@
 # IoT Sensor Dashboard
 
-This is a full-stack IoT sensor dashboard that collects, stores, and displays temperature and vibration sensor data using **MongoDB, Express, React, Node.js (MERN)** with **Recharts** for data visualization and **TailwindCSS** for styling.
+This is a full-stack IoT sensor dashboard that collects, stores, and displays temperature and vibration sensor data in real-time using **MongoDB, Express, React, Node.js (MERN)**. I used **Recharts** for data visualization, **TailwindCSS** for UI, and **Axios** for API calls.
 
 ## Details
 
