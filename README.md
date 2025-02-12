@@ -54,11 +54,11 @@ npm start  # Start frontend server at http://localhost:3000
 
 ---
 
-## 🌐 API Endpoints
+## API Endpoints
 
 | Method | Endpoint        | Description          |
 |--------|----------------|----------------------|
 | GET    | /api/sensors   | Fetch all sensor data |
 
 ---
-# IoT-Sensor-Dashboard
+
