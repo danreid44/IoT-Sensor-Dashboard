@@ -20,6 +20,7 @@ const seedData = async () => {
       { name: 'Motor A', temperature: 72.1, vibration: 123.97 },
       { name: 'Motor B', temperature: 76.5, vibration: 128.23 },
       { name: 'Motor C', temperature: 70.8, vibration: 122.16 },
+      { name: 'Motor D', temperature: 75.4, vibration: 126.82 },
     ]); // Insert sample data for 60 Hz AC motors
     console.log('Sample sensor data inserted'); // Log success message
   } catch (error) {
