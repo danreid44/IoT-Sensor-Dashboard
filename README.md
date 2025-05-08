@@ -12,12 +12,13 @@ This is a full-stack IoT sensor dashboard that collects, stores, and displays te
 
 # Screenshots
 
-<img src="screenshots/dashboard.png" alt="IoT Dashboard Screenshot" width="700"/>
 Display of temperature and vibration data fetched from MongoDB.
+<img src="screenshots/dashboard.png" alt="IoT Dashboard Screenshot" width="700"/>
 
 
-<img src="screenshots/postman.png" alt="Postman API Testing Screenshot" width="700"/>
 Sample GET request tested using Postman collection.
+<img src="screenshots/postman.png" alt="Postman API Testing Screenshot" width="700"/>
+
 
 
 # Installation Instructions
