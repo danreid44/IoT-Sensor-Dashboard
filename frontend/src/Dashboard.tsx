@@ -1,5 +1,5 @@
-import React, { FunctionComponent, useState, useEffect } from "react";
-import axios from "axios";
+import React, { FunctionComponent, useState, useEffect } from "react"; // Import React and hooks
+import axios from "axios"; // Import axios for HTTP requests
 import {
   LineChart,
   Line,
@@ -9,26 +9,28 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
-} from "recharts";
+} from "recharts"; // Import recharts components
 
+// Define the structure of sensor data
 interface SensorData {
   _id: string;
   name: string;
   temperature: number;
   vibration: number;
   timestamp: string;
-}
+} 
 
+// Define the structure of the props for the Dashboard component
 const Dashboard: FunctionComponent = () => {
   const [sensors, setSensors] = useState<SensorData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-
+// Get the API URL from environment variables
 const API_URL = import.meta.env.VITE_API_URL;
 console.log("API URL is:", API_URL);
 
-
+// Get sensor data from the API URL
   useEffect(() => {
     axios
       .get(`${API_URL}/sensors`)
@@ -37,13 +39,13 @@ console.log("API URL is:", API_URL);
         setLoading(false);
       })
       .catch((err) => {
-        console.error(err); // <-- Add this so you see the error in console
+        console.error(err); // Log the error to the console
         setError("Failed to fetch sensor data");
         setLoading(false);
       });
   }, [API_URL]);
   
-
+// Log the sensor data to the console
   if (loading) return <p className="text-center mt-10">Loading sensor data...</p>;
   if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
 
@@ -113,5 +115,5 @@ console.log("API URL is:", API_URL);
   );
 };
 
-export default Dashboard;
+export default Dashboard; // Export the Dashboard component
 

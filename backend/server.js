@@ -7,7 +7,7 @@ import Sensor from './models/sensor.js';
 
 dotenv.config();
 
-const app = express();
+const app = express(); // Create an Express application
 
 const mongoURI = process.env.MONGO_URI;  // Get from .env file
 
@@ -30,7 +30,7 @@ const SensorSchema = new mongoose.Schema({
 });
 
 
-// API Route to Fetch Sensor Data
+// API Route to Get Sensor Data
 app.get('/sensors', async (req, res) => {
   try {
     const sensors = await Sensor.find();
@@ -40,14 +40,14 @@ app.get('/sensors', async (req, res) => {
   }
 });
 
-// Create (POST)
+// API Route to Post Sensor Data
 app.post('/sensors', async (req, res) => {
   const newSensor = new Sensor(req.body);
   await newSensor.save();
   res.status(201).send(newSensor);
 });
 
-// Update (PATCH)
+// API Route to Patch Sensor Data
 app.patch('/sensors/:id', async (req, res) => {
   const updatedSensor = await Sensor.findByIdAndUpdate(req.params.id, req.body, { new: true });
   if (!updatedSensor) {
@@ -57,7 +57,7 @@ app.patch('/sensors/:id', async (req, res) => {
 });
 
 
-// Delete (DELETE)
+// API Route to Delete Sensor Data
 app.delete('/sensors/:id', async (req, res) => {
   const deletedSensor = await Sensor.findByIdAndDelete(req.params.id);
   if (!deletedSensor) {

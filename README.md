@@ -1,6 +1,6 @@
 # IoT Sensor Dashboard
 
-This is a full-stack IoT sensor dashboard that collects, stores, and displays temperature and vibration sensor data using the **MongoDB, Express, React, Node.js (MERN)** stack. This is designed to be a scalable dashboard that supports a sensor data in a variety of applications.
+This is a full-stack IoT sensor dashboard that collects, stores, and displays temperature and vibration sensor data using the **MongoDB, Express, React, Node.js (MERN)** stack. This is designed to be a scalable dashboard that supports sensor data in a variety of applications.
 
 # Key Features
 
@@ -21,7 +21,7 @@ cd backend
 npm install  # Install dependencies
 cp .env.example .env  # Configure your MongoDB URI in .env
 node seed.js  # Populate database with sample data
-npm run start:5000 (or npm run start:5001) # Start backend server at http://localhost:5000/sensors
+npm run start:5000  # Start backend server at http://localhost:5000/sensors
 
 # 3. Set Up the Frontend
 cd frontend
