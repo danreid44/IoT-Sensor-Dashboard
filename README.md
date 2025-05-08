@@ -1,64 +1,38 @@
 # IoT Sensor Dashboard
 
-This is a full-stack IoT sensor dashboard that collects, stores, and displays temperature and vibration sensor data using **MongoDB, Express, React, Node.js (MERN)** with **Recharts** for data visualization and **TailwindCSS** for styling.
+This is a full-stack IoT sensor dashboard that collects, stores, and displays temperature and vibration sensor data using the **MongoDB, Express, React, Node.js (MERN)** stack. This is designed to be a scalable dashboard that supports a sensor data in a variety of applications.
 
-## Features
+# Key Features
 
-- **Real-time IoT Sensor Data** – Fetches sensor data from MongoDB
-- **Interactive Charts** – Uses Recharts to display sensor trends
-- **REST API** – Backend built with Node.js & Express
-- **Modern UI** – Frontend built with React, TypeScript, and TailwindCSS
-- **Modular Codebase** – Backend and Frontend in separate directories
+- Backend built with Node.js and Express
+- Uses MongoDB as the database for the sensor data
+- Frontend is built with React, TypeScript, and TailwindCSS
+- Postman collection for testing the API endpoints
 
-## Project Structure
-/my-project
-│── /backend
-│   ├── server.js  # Main server file
-│   ├── seed.js  # Script to populate MongoDB with sample data
-│   ├── models/
-│   ├── routes/
-│   ├── .env
-│   ├── package.json
-│── /frontend
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── App.tsx
-│   │   ├── index.tsx
-│   │   ├── Dashboard.tsx   # UI with Recharts
-│   ├── public/
-│   ├── tailwind.config.js
-│   ├── package.json
-│── .gitignore
-│── README.md
 
----
+# Installation Instructions
 
-## Installation & Setup
-
-### 1. Clone the Repository
+# 1. Clone the Repository
 git clone https://github.com/yourusername/iot-sensor-dashboard.git
 cd iot-sensor-dashboard
 
-### 2️. Set Up the Backend
+# 2️. Set Up the Backend
 cd backend
 npm install  # Install dependencies
 cp .env.example .env  # Configure your MongoDB URI in .env
 node seed.js  # Populate database with sample data
-npm start  # Start backend server at http://localhost:5000
+npm run start:5000 (or npm run start:5001) # Start backend server at http://localhost:5000/sensors
 
-### 3. Set Up the Frontend
+# 3. Set Up the Frontend
 cd frontend
 npm install  # Install dependencies
-npm start  # Start frontend server at http://localhost:3000
+npm run dev # Run frontend server at http://localhost:5173
 
----
 
-## 🌐 API Endpoints
+# API Endpoints
 
-| Method | Endpoint        | Description          |
-|--------|----------------|----------------------|
-| GET    | /api/sensors   | Fetch all sensor data |
+GET     `/sensors`      # Get all sensor data
+POST    `/sensors`      # Add new sensor data
+PATCH   `/sensors/:id`  # Update a sensor record
+DELETE  `/sensors/:id`  # Delete sensor record
 
----
-# IoT-Sensor-Dashboard

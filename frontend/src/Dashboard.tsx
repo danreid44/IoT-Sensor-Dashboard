@@ -24,18 +24,25 @@ const Dashboard: FunctionComponent = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+
+const API_URL = import.meta.env.VITE_API_URL;
+console.log("API URL is:", API_URL);
+
+
   useEffect(() => {
     axios
-      .get("http://localhost:5000/sensors")
+      .get(`${API_URL}/sensors`)
       .then((response) => {
         setSensors(response.data);
         setLoading(false);
       })
       .catch((err) => {
+        console.error(err); // <-- Add this so you see the error in console
         setError("Failed to fetch sensor data");
         setLoading(false);
       });
-  }, []);
+  }, [API_URL]);
+  
 
   if (loading) return <p className="text-center mt-10">Loading sensor data...</p>;
   if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;

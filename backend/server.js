@@ -40,7 +40,33 @@ app.get('/sensors', async (req, res) => {
   }
 });
 
+// Create (POST)
+app.post('/sensors', async (req, res) => {
+  const newSensor = new Sensor(req.body);
+  await newSensor.save();
+  res.status(201).send(newSensor);
+});
+
+// Update (PATCH)
+app.patch('/sensors/:id', async (req, res) => {
+  const updatedSensor = await Sensor.findByIdAndUpdate(req.params.id, req.body, { new: true });
+  if (!updatedSensor) {
+    return res.status(404).json({ error: 'Sensor not found' });
+  }
+  res.send(updatedSensor);
+});
+
+
+// Delete (DELETE)
+app.delete('/sensors/:id', async (req, res) => {
+  const deletedSensor = await Sensor.findByIdAndDelete(req.params.id);
+  if (!deletedSensor) {
+    return res.status(404).json({ error: 'Sensor not found' });
+  }
+  res.send({ message: 'Sensor deleted' });
+});
+
 // Define Port and Start Server
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
