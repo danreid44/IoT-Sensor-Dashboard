@@ -22,7 +22,10 @@ Display of temperature and vibration data fetched from MongoDB.
 
 
 Sample GET request tested using Postman collection.
+<<<<<<< HEAD
 
+=======
+>>>>>>> ec916e9d8f4519bc0ac1f300304008ff725a8da7
 <img src="screenshots/postman.png" alt="Postman API Testing Screenshot" width="700"/>
 
 
