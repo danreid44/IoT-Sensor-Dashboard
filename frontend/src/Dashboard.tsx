@@ -31,19 +31,33 @@ const API_URL = import.meta.env.VITE_API_URL;
 console.log("API URL is:", API_URL);
 
 // Get sensor data from the API URL
-  useEffect(() => {
-    axios
-      .get(`${API_URL}/sensors`)
-      .then((response) => {
-        setSensors(response.data);
+ useEffect(() => {
+  const controller = new AbortController(); // Create an AbortController to cancel the request if needed
+
+  const fetchData = async () => {
+    try {
+      const res = await axios.get(`${API_URL}/sensors`, { signal: controller.signal }); // Fetch data from the API
+      setSensors(res.data);
+      setLoading(false);
+    } catch (err) {
+      if (axios.isCancel(err)) {
+        console.log("Request canceled:", err.message);
+      } else {
+        setError("Failed to fetch sensor data"); // Set error message if the request fails
         setLoading(false);
-      })
-      .catch((err) => {
-        console.error(err); // Log the error to the console
-        setError("Failed to fetch sensor data");
-        setLoading(false);
-      });
-  }, [API_URL]);
+      }
+    }
+  };
+
+  fetchData();
+  const interval = setInterval(fetchData, 5000); // Fetch data every 5 seconds
+
+  return () => {
+    clearInterval(interval);
+    controller.abort(); // Cancels the request if unmounted
+  };
+}, [API_URL]); // Fetch data when the component mounts
+
   
 // Log the sensor data to the console
   if (loading) return <p className="text-center mt-10">Loading sensor data...</p>;
@@ -78,7 +92,7 @@ console.log("API URL is:", API_URL);
               <YAxis />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="vibration" stroke="#059669" strokeWidth={2} name="Vibration (Hz)" />
+              <Line type="monotone" dataKey="vibration" stroke="#059669" strokeWidth={2} name="Vibration (mm/s)" />
             </LineChart>
           </ResponsiveContainer>
         </div>
@@ -92,7 +106,7 @@ console.log("API URL is:", API_URL);
               <tr className="bg-indigo-100 text-indigo-1000 uppercase text-sm leading-normal">
                 <th className="p-3 text-left">Sensor Name</th>
                 <th className="p-3 text-left">Temperature (°C)</th>
-                <th className="p-3 text-left">Vibration (Hz)</th>
+                <th className="p-3 text-left">Vibration (mm/s)</th>
                 <th className="p-3 text-left">Timestamp</th>
               </tr>
             </thead>

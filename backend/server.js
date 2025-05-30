@@ -42,9 +42,13 @@ app.get('/sensors', async (req, res) => {
 
 // API Route to Post Sensor Data
 app.post('/sensors', async (req, res) => {
-  const newSensor = new Sensor(req.body);
-  await newSensor.save();
-  res.status(201).send(newSensor);
+  try{
+    const newSensor = new Sensor(req.body);
+    await newSensor.save();
+    res.status(201).json({ message: 'Sensor data saved' });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 // API Route to Patch Sensor Data

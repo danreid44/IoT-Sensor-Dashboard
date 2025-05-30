@@ -17,10 +17,10 @@ const seedData = async () => {
   try {
     await Sensor.deleteMany(); // Clear existing data
     await Sensor.insertMany([
-      { name: 'Motor A', temperature: 72.1, vibration: 123.97 },
-      { name: 'Motor B', temperature: 76.5, vibration: 128.23 },
-      { name: 'Motor C', temperature: 70.8, vibration: 122.16 },
-      { name: 'Motor D', temperature: 75.4, vibration: 126.82 },
+      { name: 'Motor 01', temperature: 22.4, vibration: 2.95 },
+      { name: 'Motor 02', temperature: 29.5, vibration: 5.67 },
+      { name: 'Motor 03', temperature: 23.6, vibration: 3.18 },
+      { name: 'Motor 04', temperature: 27.3, vibration: 4.29 },
     ]); // Insert sample data for 60 Hz AC motors
     console.log('Sample sensor data inserted'); // Log success message
   } catch (error) {
