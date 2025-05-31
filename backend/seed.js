@@ -11,6 +11,10 @@ mongoose.connect(process.env.MONGO_URI, {
   useUnifiedTopology: true,
 });
 
+// Clear existing sensor data before seeding new data
+await Sensor.deleteMany({}); 
+console.log('Cleared all existing sensor data');
+
 // Run the seedData function to insert sample data
 // Define Schema and Model for the sensor data in MongoDB
 const seedData = async () => {

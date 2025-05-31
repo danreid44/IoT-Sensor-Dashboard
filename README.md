@@ -16,16 +16,24 @@ To aid development and demonstration, the backend includes a script to populate 
 
 ## Screenshots ##
 
-*Display of temperature and vibration data fetched from MongoDB.*
+*Display of temperature and vibration data fetched from MongoDB while simulator is running.*
 
-<img src="screenshots/dashboard.png" alt="IoT Dashboard Screenshot" width="700"/>
+<img src="screenshots/dashboard_charts.gif" alt="IoT Dashboard Charts Gif" width="700"/>
+
+<br>
+<br>
+
+
+*Display of collected temperature and vibration data on the dashboard.*
+
+<img src="screenshots/dashboard_table.png" alt="IoT Dashboard Table" width="700"/>
 
 <br>
 <br>
 
 *Sample GET request tested using Postman collection.*
 
-<img src="screenshots/postman.png" alt="Postman API Testing Screenshot" width="700"/>
+<img src="screenshots/postman_GET.png" alt="Postman API Testing Screenshot" width="700"/>
 
 <br>
 <br>
