@@ -16,15 +16,19 @@ To aid development and demonstration, the backend includes a script to populate 
 
 ## Screenshots ##
 
-Display of temperature and vibration data fetched from MongoDB.
+*Display of temperature and vibration data fetched from MongoDB.*
 
 <img src="screenshots/dashboard.png" alt="IoT Dashboard Screenshot" width="700"/>
 
+<br>
+<br>
 
-Sample GET request tested using Postman collection.
+*Sample GET request tested using Postman collection.*
 
 <img src="screenshots/postman.png" alt="Postman API Testing Screenshot" width="700"/>
 
+<br>
+<br>
 
 # Installation Instructions
 
