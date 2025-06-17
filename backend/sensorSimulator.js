@@ -29,5 +29,5 @@ async function sendReading() {
   }
 }
 
-// Run every 5 Seconds
+// Run every 5 Seconds or based on your requirement
 setInterval(sendReading, 5000);

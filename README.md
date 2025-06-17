@@ -26,14 +26,14 @@ To aid development and demonstration, the backend includes a script to populate 
 
 *Display of collected temperature and vibration data on the dashboard.*
 
-<img src="screenshots/dashboard_table.png" alt="IoT Dashboard Table" width="700"/>
+<img src="screenshots/dashboard_table.png" alt="IoT Dashboard Table" width="600"/>
 
 <br>
 <br>
 
 *Sample GET request tested using Postman collection.*
 
-<img src="screenshots/postman_GET.png" alt="Postman API Testing Screenshot" width="700"/>
+<img src="screenshots/postman_GET.png" alt="Postman API Testing Screenshot" width="600"/>
 
 <br>
 <br>
