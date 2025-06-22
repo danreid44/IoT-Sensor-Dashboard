@@ -26,7 +26,7 @@ const SensorSchema = new mongoose.Schema({
   name: String,
   temperature: Number,
   vibration: Number,
-  timestamp: { type: Date, default: Date.now },
+  timestamp: { type: Date, default: Date.now }, // Automatically set timestamp
 });
 
 
