@@ -89,11 +89,11 @@ const CustomTooltip = ({ active, payload, label }) => {
   if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
 
   return (
-    <div className="p-6 bg-gray-900 text-gray-100 min-h-screen">
+    <div className="p-6 bg-gray-800 text-gray-100 min-h-screen">
       <h1 className="text-3xl font-bold mb-6 text-gray-100">Sensor Dashboard</h1>
 
         {/* Temperature Chart */}
-        <div className="bg-black shadow-lg rounded-2xl p-6 mb-6 transition-transform transform hover:scale-105">
+        <div className="bg-gray-900 shadow-lg rounded-2xl p-6 mb-6 transition-transform transform hover:scale-105">
           <h2 className="text-xl font-semibold mb-4">Temperature Over Time</h2>
           <ResponsiveContainer width="100%" height={350}>
             <LineChart data={sensors}>
@@ -116,7 +116,7 @@ const CustomTooltip = ({ active, payload, label }) => {
         </div>
 
         {/* Vibration Chart */}
-        <div className="bg-black shadow-lg rounded-2xl p-6 mb-6 transition-transform transform hover:scale-105">
+        <div className="bg-gray-900 shadow-lg rounded-2xl p-6 mb-6 transition-transform transform hover:scale-105">
           <h2 className="text-xl font-semibold mb-2">Vibration Over Time</h2>
           <ResponsiveContainer width="100%" height={350}>
             <LineChart data={sensors}>
@@ -139,7 +139,7 @@ const CustomTooltip = ({ active, payload, label }) => {
         </div>
 
       {/* Table */}
-      <div className="bg-black shadow-lg rounded-2xl p-6 transition-transform transform hover:scale-105">
+      <div className="bg-gray-900 shadow-lg rounded-2xl p-6 transition-transform transform hover:scale-105">
         <h2 className="text-xl font-semibold mb-4">Sensor Data Table</h2>
         <div className="overflow-x-auto">
           <table className="min-w-full border border-gray-100 rounded-lg">
