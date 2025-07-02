@@ -138,6 +138,18 @@ const CustomTooltip = ({ active, payload, label }) => {
           </ResponsiveContainer>
         </div>
 
+        {/* Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+          <div className="bg-gray-800 text-white p-4 rounded-xl shadow">
+            <h3 className="text-sm text-gray-400">Avg Temperature</h3>
+            <p className="text-2xl font-bold">{avgTemp} °C</p>
+          </div>
+          <div className="bg-gray-800 text-white p-4 rounded-xl shadow">
+            <h3 className="text-sm text-gray-400">Max Vibration</h3>
+            <p className="text-2xl font-bold">{maxVibration} mm/s</p>
+          </div>
+        </div>
+
       {/* Table */}
       <div className="bg-gray-900 shadow-lg rounded-2xl p-6 transition-transform transform hover:scale-105">
         <h2 className="text-xl font-semibold mb-4">Sensor Data Table</h2>
