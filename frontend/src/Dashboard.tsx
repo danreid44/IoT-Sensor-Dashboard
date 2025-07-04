@@ -1,5 +1,7 @@
 import React, { FunctionComponent, useState, useEffect } from "react"; // Import React and hooks
 import axios from "axios"; // Import axios for HTTP requests
+import Stats from "./Stats";
+
 import {
   LineChart,
   Line,
@@ -25,6 +27,16 @@ const Dashboard: FunctionComponent = () => {
   const [sensors, setSensors] = useState<SensorData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+// Calculate average temperature and maximum vibration from the sensor data
+const avgTemp = sensors.length
+  ? (sensors.reduce((sum, s) => sum + s.temperature, 0) / sensors.length).toFixed(1)
+  : "N/A";
+
+const maxVibration = sensors.length
+  ? Math.max(...sensors.map((s) => s.vibration)).toFixed(1)
+  : "N/A";
+
 
 // Get the API URL from environment variables
 const API_URL = import.meta.env.VITE_API_URL;
@@ -139,16 +151,8 @@ const CustomTooltip = ({ active, payload, label }) => {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-          <div className="bg-gray-800 text-white p-4 rounded-xl shadow">
-            <h3 className="text-sm text-gray-400">Avg Temperature</h3>
-            <p className="text-2xl font-bold">{avgTemp} °C</p>
-          </div>
-          <div className="bg-gray-800 text-white p-4 rounded-xl shadow">
-            <h3 className="text-sm text-gray-400">Max Vibration</h3>
-            <p className="text-2xl font-bold">{maxVibration} mm/s</p>
-          </div>
-        </div>
+        <Stats avgTemp={avgTemp} maxVibration={maxVibration} />
+
 
       {/* Table */}
       <div className="bg-gray-900 shadow-lg rounded-2xl p-6 transition-transform transform hover:scale-105">
